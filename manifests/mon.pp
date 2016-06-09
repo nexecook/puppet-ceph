@@ -93,7 +93,7 @@ define ceph::mon (
     # Note: once CentOS7 SIG provides ceph packaging on:
     # http://buildlogs.centos.org/centos/7/storage/x86_64/ceph-jewel/
     # then we can drop the Ubuntu conditional.
-    elsif $::service_provider == 'systemd' and $::operatingsystem == 'Ubuntu' {
+    elsif $::service_provider == 'systemd' {
       $init = 'systemd'
       Service {
         name     => $mon_service,
