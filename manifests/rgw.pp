@@ -180,9 +180,9 @@ define ceph::rgw (
 
     Service {
       name     => "radosgw-${name}",
-      start    => 'service radosgw start',
-      stop     => 'service radosgw stop',
-      status   => 'service radosgw status',
+      start    => "systemctl start ceph-radosgw@${name}",
+      stop     => "systemctl stop ceph-radosgw@${name}",
+      status   => "systemctl status ceph-radosgw@{name}",
       provider => $::ceph::params::service_provider,
     }
   }
